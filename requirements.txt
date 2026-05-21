@@ -1,0 +1,15 @@
+numpy
+pandas
+scikit-learn # general lib for classification and regression 
+
+dlib-bin # for face recognition in images..boundaries on pics 
+git+https://github.com/ageitgey/face_recognition_models
+setuptools<70.0.0 # tools used for seeting up that github thing 
+
+supabase # free database provide 
+bcrypt # hashing for encryption 
+
+segno # for url to qr code 
+pillow # in image processing 
+
+streamlit # for web apps 
