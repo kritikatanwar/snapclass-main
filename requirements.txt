@@ -13,3 +13,6 @@ segno # for url to qr code
 pillow # in image processing 
 
 streamlit # for web apps 
+
+librosa
+resemblyzer
