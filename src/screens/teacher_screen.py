@@ -31,6 +31,7 @@ def teacher_dashboard():
                del st.session_state.teacher_data
                st.rerun()
     st.space()
+    
     if "current_teacher_tab" not in st.session_state:
         st.session_state.current_teacher_tab='take_attendance'
     tab1,tab2,tab3= st.columns(3)

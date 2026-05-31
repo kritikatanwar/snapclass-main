@@ -37,13 +37,13 @@ def style_base_layout():
 
         /* Hide Top Bar of streamlit */
     #MainMenu,
-     footer,
-     header {
-     visibility: hidden;
-     }
-      .block-container { 
-                padding-top:1rem !important;
-                    }  
+    #  footer,
+    #  header {
+    #  visibility: hidden;
+    #  }
+    #   .block-container { 
+    #             padding-top:1rem !important;
+    #                 }  
 
                 
     h1{
