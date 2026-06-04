@@ -19,7 +19,7 @@ st.markdown("""
 def subject_card(name, code, section, stats=None, footer_callback=None):
 
     html = f"""
-    <div class="subject-card" style="background:#F5F3FF; padding:25px; border-radius:24px; border:1px solid #E4E4F5; box-shadow:inset 6px 0 0 #D9468F, 0 4px 10px rgba(0,0,0,0.05); margin-bottom:20px; width:100%;">
+    <div class="subject-card" style="background:#F5F3FF; padding:25px; border-radius:24px; border:1px solid #E4E4F5; box-shadow:inset 6px 0 0 #D9468F, 0 4px 10px rgba(0,0,0,0.05); margin-bottom:20px; width:100%; min-height:230px;">
 
     <h3 style="margin:0; color:#1E293B; font-size:1.5rem; font-weight:700;">
     📘 {name}

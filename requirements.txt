@@ -13,6 +13,7 @@ segno # for url to qr code
 pillow # in image processing 
 
 streamlit # for web apps 
+streamlit-aggrid==1.2.1.post2
 
 librosa
 resemblyzer

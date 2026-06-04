@@ -62,12 +62,20 @@ def student_dashboard():
 
           stats= stats_map.get(sid,{"total":0,"attended":0})
           def unenroll_btn():
-             if st.button("Unenroll from this course", type='tertiary', width='stretch', icon=':material/delete_forever:'):
-               with st.spinner("Unenrolling from course..."):
-                   unenroll_student_to_table(student_id, sid)
+             if st.button(
+                 "Unenroll from this course",
+                       key=f"unenroll_{sid}",
+                    type='tertiary',
+                     width='stretch',
+                 icon=':material/delete_forever:'
+               ):
+            # with st.spinner("Unenrolling from course..."):
+                  unenroll_student_to_table(student_id, sid)
+                  st.toast(f"Unenrolled from {sub['name']} successfully!")
+                  st.rerun()
               
           with cols[i % 2]:
-              subject_card(
+                 subject_card(
                   name=sub['name'],
                   code= sub['subject_code'],
                   section= sub['section'],
@@ -76,7 +84,7 @@ def student_dashboard():
                       ('✅','Attended',stats['attended'])
                   ],
                   footer_callback= unenroll_btn
-              ) 
+               ) 
               
      footer_dashboard()
 
@@ -114,19 +122,20 @@ def student_screen():
     st.space()
 
     show_registration = False
-
+    
     photo_source = st.camera_input(
         "Position your face in center"
     )
+    
 
     if photo_source:
 
         img = np.array(Image.open(photo_source))
 
         with st.spinner('AI is Scanning'):
-
+           
             detected, all_ids, num_faces = predict_attendance(img)
-
+           
             if num_faces == 0:
 
                 st.warning('Face not found!')
@@ -138,11 +147,11 @@ def student_screen():
             else:
 
                 if detected:
-
+                    
                     student_id = list(detected.keys())[0]
-
+                    
                     all_students = get_all_students()
-
+                  
                     student = next(
                         (
                             s for s in all_students
@@ -231,7 +240,7 @@ def student_screen():
 
                             if audio_data:
 
-                                voice_emb = ( get_voice_embedding(audio_data.read() ))
+                                voice_emb = ( get_voice_embedding(audio_data.read()))
                                    
                                         
                                    

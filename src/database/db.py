@@ -82,6 +82,22 @@ def unenroll_student_to_table(student_id, subject_id):
      response= supabase.table('subject_students').delete().eq('student_id',student_id).eq('subject_id',subject_id).execute()
      return response.data
 
+def delete_subject(subject_id):
+    return (
+        supabase
+        .table("subjects")
+        .delete()
+        .eq("subject_id", subject_id)
+        .execute()
+    )
+
+# ATTENDANCE
+
+def create_attendance(logs):
+   response= supabase.table('attendance_logs').insert(logs).execute()
+   return response.data
 
 
-
+def get_attendance_for_teacher(teacher_id):
+     response= supabase.table('attendance_logs').select("*,subjects!inner(*)").eq('subjects.teacher_id',teacher_id).execute()
+     return response.data
